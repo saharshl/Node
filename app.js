@@ -1,6 +1,7 @@
-let http = require('http');
-http.createServer(function(req,resp){
-	resp.write("Hello this is Node");
-	resp.end();
-}).listen(3001);
- 
+var express = require('express');
+var app = express();
+app.use(express.static('public'));
+app.get('/', function(req,res){
+	res.sendFile(__dirname + '/Blog.html');
+});
+app.listen(3001);
